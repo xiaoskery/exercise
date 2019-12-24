@@ -36,7 +36,7 @@ public final class WebSocketClient {
                 }
             });
             // tcp 建立连接
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 20; i++) {
                 for (int j = 0; j < 60000; j++) {
                     b.connect(host, port).sync().get();
                 }

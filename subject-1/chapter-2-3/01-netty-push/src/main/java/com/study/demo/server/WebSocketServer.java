@@ -24,7 +24,7 @@ public class WebSocketServer {
                     .childHandler(new WebSocketServerInitializer())
                     .childOption(ChannelOption.SO_REUSEADDR, true);
 
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 20; i++) {
                 bootstrap.bind(++PORT).addListener(new ChannelFutureListener() {
                     @Override
                     public void operationComplete(ChannelFuture channelFuture) throws Exception {
