@@ -15,10 +15,10 @@ import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketCl
 public final class WebSocketClient {
 
     public static void main(String[] args) throws Exception {
-        final String host = System.getProperty("netease.pushserver.host", "127.0.0.1");
-        final String maxSize = System.getProperty("netease.client.port.maxSize", "100");
-        final String maxConnections = System.getProperty("netease.client.port.maxConnections", "60000");
-        int port = 9001;
+        final String host = System.getProperty("pushserver.host", "127.0.0.1");
+        int port = Integer.parseInt(System.getProperty("pushserver.host.port", "9001"));
+        final int pSize = Integer.parseInt(System.getProperty("pushserver.host.port.size", "20"));
+        final int pConnSize = Integer.parseInt(System.getProperty("pushserver.host.port.conn.size", "50000"));
 
         EventLoopGroup group = new NioEventLoopGroup();
         try {
@@ -36,11 +36,14 @@ public final class WebSocketClient {
                 }
             });
             // tcp 建立连接
-            for (int i = 0; i < 20; i++) {
-                for (int j = 0; j < 60000; j++) {
-                    b.connect(host, port).sync().get();
+            for (int i = 0; i < pSize; i++) {
+                for (int j = 0; j < pConnSize; j++) {
+                    try {
+                        b.connect(host, port).sync().get();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                port++;
             }
             System.in.read();
         } finally {
