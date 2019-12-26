@@ -18,6 +18,8 @@
         <module>02-rabbitmq</module>
         <module>02-rabbitmq-spring</module>
         <module>03-kafka</module>
+        <module>02-rabbitmq-tx-order-service</module>
+        <module>02-rabbitmq-tx-dispatch-service</module>
     </modules>
 
 
