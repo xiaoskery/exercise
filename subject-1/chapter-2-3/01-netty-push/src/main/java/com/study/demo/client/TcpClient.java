@@ -12,6 +12,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 public final class TcpClient {
 
     public static void main(String[] args) throws Exception {
+        // -Dpushserver.host=tm.vemic.com -Dpushserver.host.port=443 -Dpushserver.host.port.size=1 -Dpushserver.host.port.conn.size=10000
         final String host = System.getProperty("pushserver.host", "127.0.0.1");
         int port = Integer.parseInt(System.getProperty("pushserver.host.port", "9001"));
         final int pSize = Integer.parseInt(System.getProperty("pushserver.host.port.size", "10"));

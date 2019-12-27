@@ -25,6 +25,7 @@ public class TcpServerHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, Object msg) {
+        System.out.println("Receive msg: " + msg);
     }
 
     @Override
