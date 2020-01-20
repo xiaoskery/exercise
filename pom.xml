@@ -6,6 +6,7 @@
     <modules>
         <module>subject-1</module>
         <module>subject-2</module>
+        <module>base-demo</module>
     </modules>
     <!--parent>
         <groupId>org.springframework.boot</groupId>
